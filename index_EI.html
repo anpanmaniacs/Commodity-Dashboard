@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <!--Plotly.js-->
+                <link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+                <script src="https://code.jquery.com/jquery.js"></script>
+                <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+                <script src="https://d3js.org/d3.v3.min.js"></script>
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+                
+                </head>
+      <body>
+        <div class="container">
+            <div class="showcase__section" id="bubble">
+                <div class="spacer --small"></div>
+
+                  <div class="bubbleplot" data-num="0">
+                      <div class="control-row">
+                          Country: <select class="countrydata"><option label="All Countries"></option></select>
+                          Year: <select class="yeardata"></select>                        
+                        </div>
+                      <div class="col-md-10"> 
+                          <div class="plot2" id="plotdiv2"></div>
+                      </div>
+                    <div class="row"> 
+                      <div class="col-md-4"> 
+                        <div class="plot1" id="plotdiv1"></div>
+                      </div>
+                    <div class ="col-md-4">
+                      <div class="row">
+                        <div class="plot" id="plotdiv"></div>                      
+                      </div> 
+                    </div>
+                        <div class="col-md-4">
+                            <div class="plot3" id="plotdiv3"></div>
+                          </div>
+                      
+                  </div>
+                   
+                    </div>
+            </div>
+        </div>
+        
+             <script src="static/index.js" type="text/javascript"></script>
+            
+        </body>
+        </html>
