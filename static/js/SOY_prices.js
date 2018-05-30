@@ -91,5 +91,10 @@ d3.csv("../../data/soybean price.csv",function(d){
                 }
             }
         });
+        $(window).on('resize', function(){
+            if(myChart != null && myChart != undefined){
+                myChart.resize();
+            }
+        });
 })
 
