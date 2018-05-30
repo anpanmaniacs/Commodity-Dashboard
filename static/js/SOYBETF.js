@@ -46,6 +46,7 @@ d3.csv("../../data/SOYB.csv",function(data){
         },
         legend: {
             top: 30,
+            left:"center",
             data: ['SOYB', 'MA5', 'MA10', 'MA20']
         },
         // move the slider get the detailed information. 
@@ -74,9 +75,20 @@ d3.csv("../../data/SOYB.csv",function(data){
                 xAxisIndex: [0, 1]
             }]
         },
+        // added tool box on top right, can zoom in and reset the zoom
+        toolbox:{
+            feature:{
+                dataZoom:{
+                    yAxisIndex:false
+                },
+                brush:{
+                    type:['lineX','clear']
+                }
+            }
+        },
         dataZoom: [{
             show:true,
-            type: 'slider',
+            type: 'slider', //slide the bar to zoom in
             xAxisIndex: [0, 1],
             realtime: false,
             start: 70, //when you open the chart, you will see zoom data from 50 to 100
@@ -150,12 +162,12 @@ d3.csv("../../data/SOYB.csv",function(data){
             axisTick: {show: false},
             splitLine: {show: false}
         }],
-        grid: [{
+        grid: [{ //for the candlestick main graph
             left: 20,
             right: 60,
             top: 110,
             height: 300
-        }, {
+        }, { // for the volumes bar graph
             left: 20,
             right: 60,
             height: 70,
@@ -199,7 +211,7 @@ d3.csv("../../data/SOYB.csv",function(data){
                 }
             },
             data: volumes
-        }, {
+        }, { //create candle stick for soybean etf. 
             type: 'candlestick',
             name: 'SOYB',
             data: values,
@@ -210,7 +222,7 @@ d3.csv("../../data/SOYB.csv",function(data){
                     borderColor: 'green',
                     borderColor0: 'red'
                 },
-                emphasis: {
+                emphasis: { // when you select the bar it will change to black color. 
                     color: 'black',
                     color0: '#444',
                     borderColor: 'black',
@@ -324,4 +336,9 @@ d3.csv("../../data/SOYB.csv",function(data){
         }]
     };
 myChart.setOption(option)
+$(window).on('resize', function(){
+    if(myChart != null && myChart != undefined){
+        myChart.resize();
+    }
+});
 })

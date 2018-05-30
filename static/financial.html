@@ -12,7 +12,15 @@
     <!-- echarts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts-en.common.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts-en.js"></script>
+    <style>
+        a{
+            color:black;
 
+        }
+        .bold {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,14 +30,14 @@
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div id="plot" style="width: 430px;height:440px;"></div>
+                        <div id="plot" style="width: auto;height:440px;"></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div id="plot1" style="width: 430px;height:440px;"></div>
+                        <div id="plot1" style="width: auto;height:440px;"></div>
                     </div>
                 </div>
             </div>
@@ -38,16 +46,35 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div id="main" style="width: 900px;height:600px;"></div>
+                        <img src="newspaper.png" height="20px" width ="auto">   <b style="font-size: 12pt">US Soybeans News</b><hr>
+                       
+                        <div id="articles"></div>
+                        <div class='display'>Displaying results <span class="bold"><span id="displayNum1"></span> - <span id="displayNum2"></span></span> of <span id="displayNum3" class="bold"></span> articles.</div>
+                        <nav aria-label="...">
+                            <ul class="pager">
+                                <li class="previous" id="previous"><a href="">Previous</a></li>
+                                <li class="next" id = "next"><a href="">Next 5 Results</a></li>
+                                <!-- <li class="end" id="end"><a href="">Last page</a></li> -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="main" style="width:auto;height:600px;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   
-    <script src="/js/SOYBETF.js"></script>
-    <script src="/js/SOY_prices.js"></script>
-    <script src="/js/SOYB_USAG.js"></script>
+   <script src="js/articles.js"></script>
+    <script src="js/SOYBETF.js"></script>
+    <script src="js/SOY_prices.js"></script>
+    <script src="js/SOYB_USAG.js"></script>
 
 </body>
 </html>
