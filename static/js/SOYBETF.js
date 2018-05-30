@@ -21,7 +21,7 @@ function calculateMA(dayCount, data) {
 }
 
 // retrieve data from SOYB.csv file from yahoo finance historical data
-d3.csv("../../csv/SOYB.csv",function(data){
+d3.csv("../../data/SOYB.csv",function(data){
     var dates = [];
     var values = [];
     var volumes = [];

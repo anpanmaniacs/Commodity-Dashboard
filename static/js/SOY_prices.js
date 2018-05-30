@@ -1,6 +1,6 @@
 
 
-d3.csv("../../csv/soybean price.csv",function(d){
+d3.csv("../../data/soybean price.csv",function(d){
     var myChart = echarts.init(document.getElementById('plot'));
     var date = [];
     var price = [];

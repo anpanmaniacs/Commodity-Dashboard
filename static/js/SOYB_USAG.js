@@ -1,10 +1,10 @@
-Plotly.d3.csv("../../csv/SOYB.csv",function(error,data){
+Plotly.d3.csv("../../data/SOYB.csv",function(error,data){
     if(error) throw error;
     var name = "SOYB";
     prepData(data,name)
 });
 
-Plotly.d3.csv("../../csv/USAG.csv",function(err,response){
+Plotly.d3.csv("../../data/USAG.csv",function(err,response){
     if(err) throw err;
     var name = "USAG"
     prepData(response,name)
