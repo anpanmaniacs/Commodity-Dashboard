@@ -1,66 +1,52 @@
-Plotly.d3.csv("../../data/soybean_futures.csv",function(error,data){
+Plotly.d3.csv("../../data/corn_soy_futures.csv",function(error,data){
     if(error) throw error;
-    var name = "SOYB";
     var dates = [];
-    var openPrice = [];
+    var cornPrice = [];
+    var soyPrice = [];
+    var ratio = [];
     data.forEach(function(data){
         dates.push(new Date(data["Date"]));
-        openPrice.push(data.Open)
+        cornPrice.push(data.CornPrice)
+        soyPrice.push(data.SoyPrice)
+        ratio.push(data.ratio)
     });
     var trace1 = {
         mode:"lines",
         x:dates,
-        y:openPrice,
-        name: name
+        y:soyPrice,
+        name: "SOYB"
     }
-    Plotly.d3.csv("../../data/corn_futures.csv",function(err,response){
-        if(err) throw err;
-        var name = "CORN"
-        var dates = [];
-        var openPrice = [];
-        response.forEach(function(data){
-            dates.push(new Date(data["Date"]));
-            openPrice.push(data.Open)
-        });
-        var trace2 = {
-            mode:"lines",
-            x:dates,
-            y:openPrice,
-            name: name,
-            yaxis:'y2'
-        }
-        var layout = {
-            legend:{"orientation":"h",
-                x:0,
-                y:-0.5,
-                // traceorder: 'normal',
-                // font: {
-                // family: 'sans-serif',
-                // size: 8,
-                // color: '#000'
-                // },
-                // bgcolor: '#E2E2E2',
-                // bordercolor: '#FFFFFF',
-                // // borderwidth: 0
-            },
-            title:"Soybean Futures vs Corn Futures",
-            xaxis:{
-                rangeselector: selectorOptions,
-                rangeslider:{}
-            },
-            yaxis:{
-                fixedrange:true
-            },
-            yaxis2:{
-                overlaying:'y',
-                side:'right'
-            }
-        };
-        
-        var data = [trace1,trace2]
-        Plotly.plot("plot1",data,layout)
 
-    });
+    var trace2 = {
+        mode:"lines",
+        x:dates,
+        y:cornPrice,
+        name: "CORN",
+        yaxis:'y2',
+        text:ratio
+    }
+    var layout = {
+        legend:{"orientation":"h",
+            x:0,
+            y:-0.5,
+        },
+        title:"Soybean Futures vs Corn Futures",
+        xaxis:{
+            rangeselector: selectorOptions,
+            rangeslider:{}
+        },
+        yaxis:{
+            fixedrange:true
+        },
+        yaxis2:{
+            overlaying:'y',
+            side:'right'
+        }
+    };
+    
+    var data = [trace1,trace2]
+    Plotly.plot("plot1",data,layout)
+
 });
 var xField = "Date",
         yField = "Price";
