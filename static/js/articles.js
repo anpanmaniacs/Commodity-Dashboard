@@ -24,6 +24,7 @@ d3.csv("../../data/soybean_articles.csv",function(err,data){
             var $a = document.createElement("a");
             $a.append(`${data[i].date}: ${data[i].title}`)
             $a.href = data[i].url
+            $a.target = "_blank"
             $article.appendChild($a)
             var $br = document.createElement("hr")
             $a.appendChild($br)
